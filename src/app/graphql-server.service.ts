@@ -41,9 +41,9 @@ export class GraphqlServerService {
       }
     `;
 
-    type Response = {
+    interface Response {
       createPost: Post;
-    };
+    }
 
     return this.apollo.mutate<Response, Post>({
       mutation: this.query,
