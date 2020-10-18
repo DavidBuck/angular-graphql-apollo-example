@@ -1,8 +1,8 @@
-# Angular 9 GraphQL Apollo Example
+# Angular 10 GraphQL Apollo Example
 
-This is a simple Angular 9 example that uses Apollo Angular to run queries and mutations on a mock GraphQL Backend.
+This is a simple Angular 10 example that uses Apollo Angular to run queries and mutations on a mock GraphQL Backend.
 
-Run `npm run start` to start the json-graphql-serve and the Angular client.
+Run `npm run start` to start the json-graphql-server and the Angular client.
 
 ## Tools
 
@@ -10,3 +10,9 @@ Run `npm run start` to start the json-graphql-serve and the Angular client.
 - [Apollo Angular](https://www.npmjs.com/package/apollo-angular)
 - [Tailwind](https://tailwindcss.com)
 - [ng-tailwindcss](https://github.com/tehpsalmist/ng-tailwindcss)
+
+## Versions
+
+- [Version 1.1](https://github.com/DavidBuck/angular-graphql-apollo-example/releases/tag/v1.1) - Angular version 10.1.6.
+
+- [Version 1.0](https://github.com/DavidBuck/angular-graphql-apollo-example/releases/tag/v1.0) - Angular version 9.1.1.

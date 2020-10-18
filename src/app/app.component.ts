@@ -23,8 +23,8 @@ export class AppComponent implements OnInit {
 
   addPostGraphql() {
     this.dataService.addPostGraphql(this.newPost).subscribe(
-      res => console.log(res),
-      err => console.error(err)
+      (res) => console.log(res),
+      (err) => console.error(err)
     );
   }
 
@@ -32,15 +32,15 @@ export class AppComponent implements OnInit {
     this.dataService
       .updatePostGraphql({ id: 4, title: 'Updated Post' })
       .subscribe(
-        res => console.log(res),
-        err => console.error(err)
+        (res) => console.log(res),
+        (err) => console.error(err)
       );
   }
 
   deletePostGraphql() {
     this.dataService.deletePostGraphql(1).subscribe(
-      res => console.log(res),
-      err => console.error(err)
+      (res) => console.log(res),
+      (err) => console.error(err)
     );
   }
 }

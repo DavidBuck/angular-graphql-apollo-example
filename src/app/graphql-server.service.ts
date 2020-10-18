@@ -1,7 +1,7 @@
+import { gql, Apollo } from 'apollo-angular';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import gql from 'graphql-tag';
-import { Apollo } from 'apollo-angular';
+
 import { Post } from './post';
 
 @Injectable({
@@ -49,9 +49,12 @@ export class GraphqlServerService {
       mutation: this.query,
       variables: post,
       update: (store, { data: { createPost } }) => {
-        const data: any = store.readQuery({ query: this.allPosts });
-        data.allPosts = [...data.allPosts, createPost];
-        store.writeQuery({ query: this.allPosts, data });
+        const existingPosts: any = store.readQuery({ query: this.allPosts });
+        const newPosts = [...existingPosts.allPosts, createPost];
+        store.writeQuery({
+          query: this.allPosts,
+          data: { allPosts: newPosts }
+        });
       }
     });
   }
@@ -84,10 +87,14 @@ export class GraphqlServerService {
     return this.apollo.mutate({
       mutation: this.query,
       variables: { id: deleteId },
-      update: store => {
-        const data: any = store.readQuery({ query: this.allPosts });
-        data.allPosts.splice(deleteId - 1, 1);
-        store.writeQuery({ query: this.allPosts, data });
+      update: (store) => {
+        const existingPosts: any = store.readQuery({ query: this.allPosts });
+        const updatedPosts = [...existingPosts.allPosts];
+        updatedPosts.splice(deleteId - 1, 1);
+        store.writeQuery({
+          query: this.allPosts,
+          data: { allPosts: updatedPosts }
+        });
       }
     });
   }
